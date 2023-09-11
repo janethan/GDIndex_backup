@@ -1,15 +1,15 @@
 self.props = {
-  "title": "", // ÏÔÊ¾µÄÍøÕ¾Ãû³Æ
-  "default_root_id": "", // ÌîĞ´ÎÄ¼ş¼ĞID»ò`root`
+  "title": "", // æ˜¾ç¤ºçš„ç½‘ç«™åç§°
+  "default_root_id": "", // å¡«å†™æ–‡ä»¶å¤¹IDæˆ–`root`
   "client_id": "",
   "client_secret": "",
   "refresh_token": "",
   service_account: false, 
   service_account_json: {},
-  auth: false, // ½ûÓÃÓÃ»§ÑéÖ¤£¬¿ªÆôÑéÖ¤Çë¸ÄÎª`true`
-  user: '', // ¿ªÆôÓÃ»§ÑéÖ¤ºó£¬ÕâÀïÊÇÓÃ»§Ãû
-  pass: '', // ¿ªÆôÓÃ»§ÑéÖ¤ºó£¬ÕâÀïÊÇµÇÂ¼ÃÜÂë
-  upload: true, // ÆôÓÃÉÏ´«¹¦ÄÜ£¬ÈçÈ¡ÏûÇë¸ÄÎª`false`
+  auth: false, // ç¦ç”¨ç”¨æˆ·éªŒè¯ï¼Œå¼€å¯éªŒè¯è¯·æ”¹ä¸º`true`
+  user: '', // å¼€å¯ç”¨æˆ·éªŒè¯åï¼Œè¿™é‡Œæ˜¯ç”¨æˆ·å
+  pass: '', // å¼€å¯ç”¨æˆ·éªŒè¯åï¼Œè¿™é‡Œæ˜¯ç™»å½•å¯†ç 
+  upload: true, // å¯ç”¨ä¸Šä¼ åŠŸèƒ½ï¼Œå¦‚å–æ¶ˆè¯·æ”¹ä¸º`false`
   lite: false
 };
 (function () {
@@ -2709,7 +2709,7 @@ async function onGet(request) {
     pathname: path
   } = request;
   const rootId = await gd.getId(request.pathname, self.props.default_root_id) || self.props.default_root_id; 
-  // return new Response(`${await gd.getId( request.pathname, self.props.default_root_id)} || ${self.props.default_root_id}`, { status: 500 }); // ·µ»Ø´øÓĞ´íÎóĞÅÏ¢µÄÏìÓ¦
+  // return new Response(`${await gd.getId( request.pathname, self.props.default_root_id)} || ${self.props.default_root_id}`, { status: 500 }); // è¿”å›å¸¦æœ‰é”™è¯¯ä¿¡æ¯çš„å“åº”
   if (path.startsWith('/~_~_gdindex/resources/')) {
     const remain = path.replace('/~_~_gdindex/resources/', '');
     const r = await fetch(`https://raw.githubusercontent.com/maple3142/GDIndex/master/web/dist/${remain}`);
@@ -2764,7 +2764,7 @@ async function onPost(request) {
     pathname: path
   } = request;
   const rootId = await gd.getId(request.pathname, self.props.default_root_id) || self.props.default_root_id;
-  // return new Response(`${await gd.getId( request.pathname, self.props.default_root_id)} || ${self.props.default_root_id}`, { status: 500 }); // ·µ»Ø´øÓĞ´íÎóĞÅÏ¢µÄÏìÓ¦
+  // return new Response(`${await gd.getId( request.pathname, self.props.default_root_id)} || ${self.props.default_root_id}`, { status: 500 }); // è¿”å›å¸¦æœ‰é”™è¯¯ä¿¡æ¯çš„å“åº”
   
   if (path.substr(-1) === '/') {
     return new Response(JSON.stringify(await gd.listFolderByPath(path, self.props.default_root_id)), {
@@ -2903,10 +2903,10 @@ async function handleRequest(request) {
     // if (Object.fromEntries(request.headers).hasOwnProperty("authorization")){
     //   const auth = Object.fromEntries(request.headers)["authorization"]//.get('Authorization');
     //   if (!auth || !/^Basic [A-Za-z0-9._~+/-]+=*$/i.test(auth)) {
-    //         return new Response(`auth£º ${auth}`, { status: 200 });
+    //         return new Response(`authï¼š ${auth}`, { status: 200 });
     //   }
     //   const [user, pass] = parseBasicAuth(auth);
-    //   return new Response(`auth£º ${user} ${pass} ${user === self.props.user && pass === self.props.pass}`, { status: 200 });
+    //   return new Response(`authï¼š ${user} ${pass} ${user === self.props.user && pass === self.props.pass}`, { status: 200 });
     // }
 
 
@@ -2956,7 +2956,7 @@ async function handleRequest(request) {
   // updatedRequest.pathname = url.pathname;
   // request = updatedRequest;
 
-  request.pathname = request.pathname.split('/').map(decodeURIComponent).map(decodeURIComponent) // for some super special cases, browser will force encode it...   eg: +¦Á¤¢¤ë¤Õ¤¡¤­¤å¤ó¡£ - +¡á.mp3
+  request.pathname = request.pathname.split('/').map(decodeURIComponent).map(decodeURIComponent) // for some super special cases, browser will force encode it...   eg: +Î±ã‚ã‚‹ãµããã‚…ã‚“ã€‚ - +â™‚.mp3
   .join('/');
 
   const path = request.pathname;
