@@ -1,6 +1,6 @@
 self.props = {
   "title": "", // 显示的网站名称
-  "default_root_id": "", // 填写文件夹ID或`root`
+  "default_root_id": "", // 文件夹ID或网盘根目录`root`
   "client_id": "",
   "client_secret": "",
   "refresh_token": "",
