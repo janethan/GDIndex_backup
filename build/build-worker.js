@@ -14,7 +14,7 @@ async function handleRequest(request) {
     let auth_code = getParameterByName(request.url, 'auth_code');
     let root = getParameterByName(request.url, 'root') || 'root';
     let user = getParameterByName(request.url, 'user') || '';
-    let password = getParameterByName(request.url, 'root_pass') || '';
+    let password = getParameterByName(request.url, 'pass') || '';
     let codeJS = '';
 
     if (auth_code) {
