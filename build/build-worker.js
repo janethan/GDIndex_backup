@@ -319,11 +319,11 @@ async function handleRequest(request) {
 </div>
 
 <div class="mb-3">
-  <label for="user">访问索引的用户名，可留空</label>
+  <label for="user">访问索引的用户名，用不到可以留空</label>
   <input type="text" class="form-control"  name="user"id="user">
 </div>
 <div class="mb-3">
-  <label for="pass">访问索引的密码，可留空</label>
+  <label for="pass">访问索引的密码，用不到可以留空</label>
   <input type="password" class="form-control" name="pass" id="pass">
 </div>
 
