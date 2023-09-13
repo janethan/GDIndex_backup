@@ -7,8 +7,8 @@ self.props = {
   service_account: false, 
   service_account_json: {},
   "auth": false, //  默认关闭验证，改成`true`启用验证后用户名和密码才会生效
-  "user": "", // 冒号右边双引号内填 用户名
-  "pass": "", // 冒号右边双引号内填 密码
+  "user": "", // 冒号右边双引号内填的是 用户名
+  "pass": "", // 冒号右边双引号内填的是 密码
   "upload": "true", // 默认已开启上传功能，取消上传功能请改成`false`
   lite: false
 };
