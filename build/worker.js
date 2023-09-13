@@ -6,10 +6,10 @@ self.props = {
   "refresh_token": "",
   service_account: false, 
   service_account_json: {},
-  auth: false, // 禁用用户验证，开启验证请改为`true`
-  user: '', // 开启用户验证后，这里是用户名
-  pass: '', // 开启用户验证后，这里是登录密码
-  upload: true, // 启用上传功能，如取消请改为`false`
+  auth: false, //  默认关闭验证，改成`true`启用验证后用户名和密码才会生效
+  "user": "", // 访问索引验证的用户名
+  "pass": "", // 访问索引验证的密码
+  upload: true, // 默认已开启上传功能，取消上传功能请改成`false`
   lite: false
 };
 (function () {
@@ -3041,4 +3041,3 @@ addEventListener('fetch', event => {
 });
  
 }());
-
